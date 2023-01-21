@@ -22,7 +22,7 @@ def cat_for_tag():
                 'Skin', 'Skin Care']
 
     cat_dict = {"Master" : labels1,
-                "Accesories" : labels2,
+                "Accessories" : labels2,
                 "Apparel" : labels3,
                 "Footwear" : labels4,
                 "Personal Care" : labels5}
@@ -36,8 +36,8 @@ def tagger(predictions, category):
 
     if category == 'Master':
         cat_list = cat_dict['Master']
-    elif category == 'Accesories':
-        cat_list = cat_dict['Accesories']
+    elif category == 'Accessories':
+        cat_list = cat_dict['Accessories']
     elif category == 'Apparel':
         cat_list = cat_dict['Apparel']
     elif category == 'Footwear':

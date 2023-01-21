@@ -9,11 +9,11 @@ import numpy as np
 from PIL import Image
 from io import BytesIO
 
-pc_path="/home/vvdiaz1/code/vvdiaz1/automatic_tagging/model_weights/model_personalcare_vgg16"
-f_path="/home/vvdiaz1/code/vvdiaz1/automatic_tagging/model_weights/model_footwear_vgg16"
-ap_path="/home/vvdiaz1/code/vvdiaz1/automatic_tagging/model_weights/model_apparel_vgg16"
-ac_path="/home/vvdiaz1/code/vvdiaz1/automatic_tagging/model_weights/model_accesories_vgg16"
-m_path="/home/vvdiaz1/code/vvdiaz1/automatic_tagging/model_weights/model_master_vgg16"
+pc_path="/home/federico/code/vvdiaz1/automatic_tagging/model_weights/model_personal_care_vgg16"
+f_path="/home/federico/code/vvdiaz1/automatic_tagging/model_weights/model_footwear_vgg16"
+ap_path="/home/federico/code/vvdiaz1/automatic_tagging/model_weights/model_apparel_vgg16"
+ac_path="/home/federico/code/vvdiaz1/automatic_tagging/model_weights/model_accesories_vgg16"
+m_path="/home/federico/code/vvdiaz1/automatic_tagging/model_weights/model_master_vgg16"
 
 
 #esta va en preprocesamiento.py
@@ -23,11 +23,10 @@ def img_byte_to_tensor(image_bytes):
    # Open image from bytes
     img = Image.open(image_bytes)
 
-    # convert image to numpy array
-    img_array = np.asarray(img)
+    # convert image to tensor and expand dims if neccesary
+    #
+    img_tensor = tf.expand_dims(img, axis = 0 )
 
-    # convert numpy array to tensor
-    img_tensor = tf.convert_to_tensor(img_array, dtype=tf.float32)
 
     return img_tensor
 
@@ -41,6 +40,7 @@ def resize_img_byte(image_bytes):
 
     # resize image
     img = img.resize((width, height), Image.ANTIALIAS)
+
 
     # save image back to bytes
     img_bytes = BytesIO()
@@ -68,9 +68,11 @@ def final_pipeline(image_bytes):
     model_master = load_model(m_path)
     master_pred = pred(model_master,preproc_image,category = 'Master')
 
-    if master_pred == 'Accesories':
+
+
+    if master_pred == 'Accessories':
         model= load_model(ac_path)
-        sub_pred = pred(model,preproc_image,category = 'Accesories')
+        sub_pred = pred(model,preproc_image,category = 'Accessories')
     elif master_pred == 'Apparel':
         model = load_model(ap_path)
         sub_pred = pred(model,preproc_image,category = 'Apparel')
@@ -89,9 +91,11 @@ def final_pipeline(image_bytes):
 import io
 from PIL import Image
 
-img_path = '/home/vvdiaz1/code/vvdiaz1/automatic_tagging/raw_data/split2_full/Footwear/test/Sandal/2802.jpg'
+img_path_acc = '/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Accessories/1599.jpg'
+img_path_ap = "/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Apparel/1533.jpg"
+img_path_pc  = "/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Personal Care/18454.jpg"
 
-with open(img_path, 'rb') as f:
+with open(img_path_pc, 'rb') as f:
     image_bytes = f.read()
 
 # resize_img_byte(image_bytes)
