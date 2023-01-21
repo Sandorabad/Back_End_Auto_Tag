@@ -93,7 +93,7 @@ from PIL import Image
 
 img_path_acc = '/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Accessories/1599.jpg'
 img_path_ap = "/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Apparel/1533.jpg"
-img_path_pc  = "/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Personal Care/18454.jpg"
+img_path_pc  = "/home/federico/code/vvdiaz1/automatic_tagging/converse4.jpg"
 
 with open(img_path_pc, 'rb') as f:
     image_bytes = f.read()
