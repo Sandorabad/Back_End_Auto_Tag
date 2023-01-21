@@ -53,3 +53,6 @@ pypi_test:
 
 pypi:
 	@twine upload dist/* -u $(PYPI_USERNAME)
+
+run_final_pipelines:
+	python -c 'from automatic_tagging.funciones.pipelines import final_pipeline; final_pipeline()'

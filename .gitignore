@@ -7,3 +7,5 @@ raw_data/
 **/__pycache__/
 .env
 *.ipynb
+.python-version
+model_weights/
