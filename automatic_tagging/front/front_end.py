@@ -2,8 +2,14 @@ import streamlit as st
 import requests
 from PIL import Image
 import pandas as pd
+import io
 
-st.set_page_config(page_title="Image Prediction App", page_icon=":guardsman:", layout="wide")
+st.set_page_config(page_title="Retail Auto Tagging", page_icon=":guardsman:", layout="wide")
+
+
+logo_path = "/home/federico/code/vvdiaz1/automatic_tagging/automatic_tagging/front/Logotipo de Internet Blanco con Triángulos de Colores.png"
+st.image(logo_path, width=200)
+
 
 def predict_image(image):
     # Add code to send the image to the API and receive a prediction
@@ -18,15 +24,28 @@ def main():
         lista_vacia = []
         for img in image_file:
 
-        #image__ = Image.open(image_file)
-        #st.image(image, caption='Uploaded Image.', use_column_width=True)
-            result = predict_image(img)
-            st.success(result.text)
-            lista_vacia.append(result.text)
-        print(lista_vacia)
-        excel = pd.DataFrame(lista_vacia).to_excel
+
+            result = predict_image(img).json()
+            result["name_img"] = img.name
+            st.success(f"Procesando imagen {img.name}")
+            lista_vacia.append(result)
+
+        excel = pd.DataFrame(lista_vacia)
+
+        buffer = io.BytesIO()
+        with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+            excel.to_excel(writer, sheet_name='Sheet1', index = False)
+            writer.save()
+
         if excel is not None:
-            st.download_button("Download csv ", excel)
+            st.download_button(
+            label="Descagar Excel",
+            data=buffer,
+            file_name="clasificacion.xlsx",
+            mime="application/vnd.ms-excel"
+            )
+
+
 
 if __name__ == '__main__':
     main()
