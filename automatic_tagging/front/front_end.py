@@ -18,7 +18,7 @@ def predict_image(image):
     return response
 
 def main():
-    st.title("Upload an image for prediction")
+    st.title("Upload a set of images for prediction")
     image_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
     if image_file is not None:
         lista_vacia = []
@@ -39,7 +39,7 @@ def main():
 
         if excel is not None:
             st.download_button(
-            label="Descagar Excel",
+            label="Download Excel",
             data=buffer,
             file_name="clasificacion.xlsx",
             mime="application/vnd.ms-excel"
