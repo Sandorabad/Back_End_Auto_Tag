@@ -22,13 +22,19 @@ def main():
     image_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
     if image_file is not None:
         lista_vacia = []
-        for img in image_file:
+        flag = False
+        with st.spinner("Processing Images"):
+            for img in image_file:
 
 
-            result = predict_image(img).json()
-            result["name_img"] = img.name
-            st.success(f"Procesando imagen {img.name}")
-            lista_vacia.append(result)
+                result = predict_image(img).json()
+                result["name_img"] = img.name
+                st.success(f"Processing Image : {img.name}" , icon = "⌛")
+                lista_vacia.append(result)
+                flag = True
+
+        if flag == True:
+            st.success("All Images Processed, Ready for Download", icon = "🔥" )
 
         excel = pd.DataFrame(lista_vacia)
 
@@ -44,6 +50,7 @@ def main():
             file_name="clasificacion.xlsx",
             mime="application/vnd.ms-excel"
             )
+
 
 
 
