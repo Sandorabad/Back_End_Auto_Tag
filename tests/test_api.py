@@ -1,6 +1,6 @@
 import requests
 import os
-url = "http://localhost:8000/pred/"
+url = "http://localhost:8000/pred"
 
 
 print(os.getenv("TEST_IMG_PATH"))

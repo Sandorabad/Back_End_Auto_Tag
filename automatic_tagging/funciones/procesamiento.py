@@ -26,11 +26,14 @@ def resize_images(original_folder = os.getenv("LOCAL_IMAGES_PATH"),
     # Resize the image
         img = img.resize((width, height))
     #Rescale image pixels
-        img = img/255.0
+        img_array = np.array(img)
+        img_array = img_array / 255.0
+
+        img_rescaled = Image.fromarray(img_array)
 
     # Save the resized image in the resized folder
-        img.save(os.path.join(save_folder, filename))
-    print(f"Images rescaled, resized and saved to {save_folder}, Ready for using model")
+        img_rescaled.save(os.path.join(save_folder, filename))
+    print(f"Images rescaled, resized and saved to {save_folder}, Ready for model")
     return None
 
 

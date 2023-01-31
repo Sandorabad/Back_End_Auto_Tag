@@ -8,4 +8,4 @@ raw_data/
 .env
 *.ipynb
 .python-version
-model_weights/
+modelos/
