@@ -28,13 +28,12 @@ def root():
 
 @app.post("/pred/")
 
-async def prediction(file : UploadFile):
+def prediction(file : UploadFile):
 
-    print("----------------------------ENDPOINT------------------------------")
-    image = Image.open(file.file).convert("RGB")
-    byte_io = BytesIO()
-    image.save(byte_io, "JPEG")
-    image_bytes = byte_io.getvalue()
+    image_bytes = file.file.read()
+    # byte_io = BytesIO()
+    # image_bytes.save(byte_io, "JPEG")
+    # image_bytes = byte_io.getvalue()
 
     preproc_image = preproc_pipeline(image_bytes) #sale como tensor
     model_master = app.state.models["model_master_vgg16"]
