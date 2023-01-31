@@ -25,13 +25,12 @@ def root():
 
 @app.post("/pred/")
 
-async def prediction(file : UploadFile):
+def prediction(file : UploadFile):
 
-    print("----------------------------ENDPOINT------------------------------")
-    image = Image.open(file.file).convert("RGB")
-    byte_io = BytesIO()
-    image.save(byte_io, "JPEG")
-    image_bytes = byte_io.getvalue()
+    image_bytes = file.file.read()
+    # byte_io = BytesIO()
+    # image_bytes.save(byte_io, "JPEG")
+    # image_bytes = byte_io.getvalue()
 
     result = final_pipeline(image_bytes)
 
