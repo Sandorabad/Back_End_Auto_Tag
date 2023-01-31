@@ -85,15 +85,4 @@ def final_pipeline(image_bytes):
     else:
         print('Something went wrong')
 
-    return {'master':master_pred, 'sub':sub_pred}
-
-
-import io
-from PIL import Image
-
-#with open(os.getenv("TEST_IMG_PATH"), 'rb') as f:
-#    image_bytes = f.read()
-
-# resize_img_byte(image_bytes)
-#x = final_pipeline(image_bytes)
-#print(x)
+    return {'Master Category':master_pred, 'Sub Category':sub_pred}

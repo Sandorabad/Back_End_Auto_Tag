@@ -1,0 +1,52 @@
+[1mdiff --cc automatic_tagging/funciones/pipelines.py[m
+[1mindex 8e41768,677aaa0..0000000[m
+[1m--- a/automatic_tagging/funciones/pipelines.py[m
+[1m+++ b/automatic_tagging/funciones/pipelines.py[m
+[36m@@@ -85,15 -85,19 +85,28 @@@[m [mdef final_pipeline(image_bytes)[m
+      else:[m
+          print('Something went wrong')[m
+  [m
+[31m-     return {'master':master_pred, 'sub':sub_pred}[m
+[32m+     return {'Master Category':master_pred, 'Sub Category':sub_pred}[m
+  [m
+  [m
+[31m- import io[m
+[31m- from PIL import Image[m
+[32m+ # import io[m
+[32m+ # from PIL import Image[m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +#with open(os.getenv("TEST_IMG_PATH"), 'rb') as f:[m
+[32m +#    image_bytes = f.read()[m
+[32m +[m
+[32m +# resize_img_byte(image_bytes)[m
+[32m +#x = final_pipeline(image_bytes)[m
+[32m +#print(x)[m
+[32m++=======[m
+[32m+ # img_path_acc = '/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Accessories/1599.jpg'[m
+[32m+ # img_path_ap = "/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Apparel/1533.jpg"[m
+[32m+ # img_path_pc  = "/home/federico/code/vvdiaz1/automatic_tagging/converse4.jpg"[m
+[32m+ [m
+[32m+ # with open(img_path_ap, 'rb') as f:[m
+[32m+ #     image_bytes = f.read()[m
+[32m+ [m
+[32m+ # # resize_img_byte(image_bytes)[m
+[32m+ # x = final_pipeline(image_bytes)[m
+[32m+ # print(x)[m
+[32m++>>>>>>> e3ea46019acb054c2889c518b563c585d4ed2379[m
+[1mdiff --cc tests/test_api.py[m
+[1mindex 4add74c,e7f0922..0000000[m
+[1m--- a/tests/test_api.py[m
+[1m+++ b/tests/test_api.py[m
+[36m@@@ -1,6 -1,6 +1,10 @@@[m
+  import requests[m
+  import os[m
+[32m++<<<<<<< HEAD:tests/test_api.py[m
+[32m +url = "http://localhost:8000/pred"[m
+[32m++=======[m
+[32m+ url = "http://localhost:8002/pred/"[m
+[32m++>>>>>>> e3ea46019acb054c2889c518b563c585d4ed2379:automatic_tagging/api/test_api.py[m
+  [m
+  [m
+  print(os.getenv("TEST_IMG_PATH"))[m
+* Unmerged path automatic_tagging/front/front_end.py
