@@ -85,19 +85,19 @@ def final_pipeline(image_bytes):
     else:
         print('Something went wrong')
 
-    return {'master':master_pred, 'sub':sub_pred}
+    return {'Master Category':master_pred, 'Sub Category':sub_pred}
 
 
-import io
-from PIL import Image
+# import io
+# from PIL import Image
 
-img_path_acc = '/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Accessories/1599.jpg'
-img_path_ap = "/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Apparel/1533.jpg"
-img_path_pc  = "/home/federico/code/vvdiaz1/automatic_tagging/converse4.jpg"
+# img_path_acc = '/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Accessories/1599.jpg'
+# img_path_ap = "/home/federico/code/vvdiaz1/automatic_tagging/raw_data/split1_total/test/Apparel/1533.jpg"
+# img_path_pc  = "/home/federico/code/vvdiaz1/automatic_tagging/converse4.jpg"
 
-with open(img_path_pc, 'rb') as f:
-    image_bytes = f.read()
+# with open(img_path_ap, 'rb') as f:
+#     image_bytes = f.read()
 
-# resize_img_byte(image_bytes)
-x = final_pipeline(image_bytes)
-print(x)
+# # resize_img_byte(image_bytes)
+# x = final_pipeline(image_bytes)
+# print(x)
