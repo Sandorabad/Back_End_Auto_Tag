@@ -34,7 +34,7 @@ def main():
                 for img in image_file:
 
                     result = {}
-                    result["name_img"] = img.name
+                    result["Image Id"] = img.name
                     result.update(predict_image(img).json())
 
                     st.success(f"Processing Image : {img.name}" , icon = "⌛")

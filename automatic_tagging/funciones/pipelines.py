@@ -85,7 +85,7 @@ def final_pipeline(image_bytes):
     else:
         print('Something went wrong')
 
-    return {'master':master_pred, 'sub':sub_pred}
+    return {'Master Category':master_pred, 'Sub Category':sub_pred}
 
 
 # import io
