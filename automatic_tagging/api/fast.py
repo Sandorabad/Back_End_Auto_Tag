@@ -4,7 +4,7 @@ import pandas as pd
 from automatic_tagging.funciones.pipelines import final_pipeline
 from PIL import Image
 from io import BytesIO
-
+from automatic_tagging.funciones.gc_loader import load_models
 
 app = FastAPI()
 
