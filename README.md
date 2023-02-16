@@ -1,73 +1,18 @@
-# Data analysis
-- Document here the project: automatic_tagging
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+## Autotag APP
+Autotag predicts the tags for the categorization of e-commerce images, it works by recieving multiple product images and returns an excel with the categories and subcategories in which the product should be listed.
 
-Please document the project the better you can.
 
-# Startup the project
+## Demo
 
-The initial setup.
+You can view the Demo in the following link:
 
-Create virtualenv and install the project:
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv ~/venv ; source ~/venv/bin/activate ;\
-    pip install pip -U; pip install -r requirements.txt
-```
+- [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sandorabad-front-auto-tag-scriptsapp-nfvcdg.streamlit.app/)
+- [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/live/UgT01EQEFQw?feature=share&t=2204)
+- [📄Slides](https://www.canva.com/design/DAFYzvKQBng/tbJLFMMsHrf35mV8O1-XfQ/view?utm_content=DAFYzvKQBng&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#3)
 
-Unittest test:
-```bash
-make clean install test
-```
+## Authors
 
-Check for automatic_tagging in github.com/{group}. If your project is not set please add it:
-
-Create a new project on github.com/{group}/automatic_tagging
-Then populate it:
-
-```bash
-##   e.g. if group is "{group}" and project_name is "automatic_tagging"
-git remote add origin git@github.com:{group}/automatic_tagging.git
-git push -u origin master
-git push -u origin --tags
-```
-
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-automatic_tagging-run
-```
-
-# Install
-
-Go to `https://github.com/{group}/automatic_tagging` to see the project, manage issues,
-setup you ssh public key, ...
-
-Create a python3 virtualenv and activate it:
-
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
-```
-
-Clone the project and install it:
-
-```bash
-git clone git@github.com:{group}/automatic_tagging.git
-cd automatic_tagging
-pip install -r requirements.txt
-make clean install test                # install and test
-```
-Functionnal test with a script:
-
-```bash
-cd
-mkdir tmp
-cd tmp
-automatic_tagging-run
-```
+- [@ggajardo20](https://github.com/ggajardo20)
+- [@vvdiaz1](https://github.com/vvdiaz1)
+- [@trinomic1004](https://github.com/trinomic1004)
+- [@Sandorabad](https://github.com/Sandorabad)
